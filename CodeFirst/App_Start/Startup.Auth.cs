@@ -1,13 +1,12 @@
 ﻿using System;
+using Doe.Ls.RAndD.CodeFirst.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.Google;
 using Owin;
-using CodeFirst.Models;
 
-namespace CodeFirst
+namespace Doe.Ls.RAndD.CodeFirst
 {
     public partial class Startup
     {

@@ -1,7 +1,6 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
-namespace CodeFirst
+namespace Doe.Ls.RAndD.CodeFirst
 {
     public class BundleConfig
     {

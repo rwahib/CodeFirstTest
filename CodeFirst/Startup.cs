@@ -1,8 +1,9 @@
-﻿using Microsoft.Owin;
+﻿using Doe.Ls.RAndD.CodeFirst;
+using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(CodeFirst.Startup))]
-namespace CodeFirst
+[assembly: OwinStartup(typeof(Startup))]
+namespace Doe.Ls.RAndD.CodeFirst
 {
     public partial class Startup
     {

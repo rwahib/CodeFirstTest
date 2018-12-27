@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace CodeFirst.Models
+namespace Doe.Ls.RAndD.CodeFirst.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
