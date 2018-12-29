@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations.Model;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Doe.Ls.RAndD.CodeFirst.Bll;
 using Doe.Ls.RAndD.CodeFirst.Bll.CodeFirstEntities;
+using Newtonsoft.Json;
+using Address = Doe.Ls.RAndD.CodeFirst.Bll.Address;
 
 namespace Doe.Ls.RAndD.CodeFirst.Runer
 {
@@ -12,7 +16,18 @@ namespace Doe.Ls.RAndD.CodeFirst.Runer
 
     public class CodeFirstFromDatabaseSchemaTest : TestBase
     {
+        /// <summary>
+        /// Retrieve data
+        /// </summary>
         protected override void RunCore()
+        {
+            // RtrieveTest();
+            UpdateTest();
+
+        }
+
+
+        private void RtrieveTest()
         {
             var ctx = new AdventureCtx();
 
@@ -20,7 +35,7 @@ namespace Doe.Ls.RAndD.CodeFirst.Runer
 
             foreach (var salesOrderHeader in ctx.SalesOrderHeaders.Take(10))
             {
-                Console.WriteLine($"{salesOrderHeader.Customer.Person}  {salesOrderHeader.CreditCard.CardType}  {salesOrderHeader.CreditCard.CardNumber.Substring(0,3).PadRight(20,'*')}  {salesOrderHeader.SubTotal.ToString("C0")}");
+                Console.WriteLine($"{salesOrderHeader.Customer.Person}  {salesOrderHeader.CreditCard.CardType}  {salesOrderHeader.CreditCard.CardNumber.Substring(0, 3).PadRight(20, '*')}  {salesOrderHeader.SubTotal.ToString("C0")}");
             }
             PrintMessage(Wordfiy("Print Addresses"));
 
@@ -39,6 +54,33 @@ namespace Doe.Ls.RAndD.CodeFirst.Runer
             {
                 Console.WriteLine(productDescription.Description);
             }
+        }
+        private void UpdateTest()
+        {
+            using (var ctx = new AdventureCtx())
+            {
+
+                PrintMessage(Wordfiy("Update address"));
+
+                var address = ctx.Addresses.FirstOrDefault();
+                var addresJson = JsonConvert.SerializeObject(address, Formatting.None);
+                var clonedAddress = JsonConvert.DeserializeObject<Address>(addresJson);
+                PrintMessage($"Address before change {address}");
+                address.City = "Sydney";
+                address.AddressLine1 = "1 Evanse Avenue";
+
+                ctx.SaveChanges();
+                var savedAddress = ctx.Addresses.SingleOrDefault(a => a.rowguid == address.rowguid);
+                PrintMessage($"Address after change {savedAddress}");
+
+                savedAddress.City = clonedAddress.City;
+                savedAddress.AddressLine1 = clonedAddress.AddressLine1;
+                ctx.SaveChanges();
+                PrintMessage($"Address after restoration  {savedAddress}");
+
+            }
+
+
         }
     }
 }
