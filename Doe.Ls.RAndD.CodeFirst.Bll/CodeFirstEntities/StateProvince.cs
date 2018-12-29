@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace Doe.Ls.RAndD.CodeFirst.Bll.CodeFirstEntities
 {
     using System;
@@ -37,6 +39,7 @@ namespace Doe.Ls.RAndD.CodeFirst.Bll.CodeFirstEntities
         public Guid rowguid { get; set; }
 
         public DateTime ModifiedDate { get; set; }
+        [JsonIgnore]
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Address> Addresses { get; set; }

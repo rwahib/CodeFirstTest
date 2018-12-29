@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace Doe.Ls.RAndD.CodeFirst.Bll.CodeFirstEntities
 {
     using System;
@@ -36,21 +38,26 @@ namespace Doe.Ls.RAndD.CodeFirst.Bll.CodeFirstEntities
         [StringLength(15)]
         public string PostalCode { get; set; }
 
+        [JsonIgnore]
         public DbGeography SpatialLocation { get; set; }
 
         public Guid rowguid { get; set; }
 
         public DateTime ModifiedDate { get; set; }
 
+        [JsonIgnore]
         public virtual StateProvince StateProvince { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<BusinessEntityAddress> BusinessEntityAddresses { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<SalesOrderHeader> SalesOrderHeaders { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<SalesOrderHeader> SalesOrderHeaders1 { get; set; }
     }
 }
