@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Data.Entity.SqlServer;
 using System.Text.RegularExpressions;
+using SqlServerTypes;
 
 namespace Doe.Ls.RAndD.CodeFirst.Runer
 {
@@ -7,6 +9,9 @@ namespace Doe.Ls.RAndD.CodeFirst.Runer
     {
         public void Run()
         {
+            Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory);
+            SqlProviderServices.SqlServerTypesAssemblyName =
+                "Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91";
             DisplayDescription();
 
         }

@@ -12,7 +12,11 @@ namespace Doe.Ls.RAndD.CodeFirst.Runer
         {
             SqlServerTypes.Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory);
 
-            var tests = new List<ITest> {new DbaseFirstWithDiffrentSchemaTest()};
+            var tests = new List<ITest>
+            {
+               // new DbaseFirstWithDiffrentSchemaTest(),
+                new CodeFirstFromDatabaseSchemaTest()
+            };
 
 
             foreach (var test in tests)

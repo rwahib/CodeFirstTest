@@ -90,6 +90,77 @@
       <DependentUpon>AdvantureWork.tt</DependentUpon>
     </Compile>
     <Compile Include="Class1.cs" />
+    <Compile Include="CodeFirstEntities\Address.cs" />
+    <Compile Include="CodeFirstEntities\AddressType.cs" />
+    <Compile Include="CodeFirstEntities\AdventureCtx.cs" />
+    <Compile Include="CodeFirstEntities\AWBuildVersion.cs" />
+    <Compile Include="CodeFirstEntities\BillOfMaterial.cs" />
+    <Compile Include="CodeFirstEntities\BusinessEntity.cs" />
+    <Compile Include="CodeFirstEntities\BusinessEntityAddress.cs" />
+    <Compile Include="CodeFirstEntities\BusinessEntityContact.cs" />
+    <Compile Include="CodeFirstEntities\ContactType.cs" />
+    <Compile Include="CodeFirstEntities\CountryRegion.cs" />
+    <Compile Include="CodeFirstEntities\CountryRegionCurrency.cs" />
+    <Compile Include="CodeFirstEntities\CreditCard.cs" />
+    <Compile Include="CodeFirstEntities\Culture.cs" />
+    <Compile Include="CodeFirstEntities\Currency.cs" />
+    <Compile Include="CodeFirstEntities\CurrencyRate.cs" />
+    <Compile Include="CodeFirstEntities\Customer.cs" />
+    <Compile Include="CodeFirstEntities\DatabaseLog.cs" />
+    <Compile Include="CodeFirstEntities\Department.cs" />
+    <Compile Include="CodeFirstEntities\EmailAddress.cs" />
+    <Compile Include="CodeFirstEntities\Employee.cs" />
+    <Compile Include="CodeFirstEntities\EmployeeDepartmentHistory.cs" />
+    <Compile Include="CodeFirstEntities\EmployeePayHistory.cs" />
+    <Compile Include="CodeFirstEntities\ErrorLog.cs" />
+    <Compile Include="CodeFirstEntities\Illustration.cs" />
+    <Compile Include="CodeFirstEntities\JobCandidate.cs" />
+    <Compile Include="CodeFirstEntities\Location.cs" />
+    <Compile Include="CodeFirstEntities\Password.cs" />
+    <Compile Include="CodeFirstEntities\Person.cs" />
+    <Compile Include="CodeFirstEntities\PersonCreditCard.cs" />
+    <Compile Include="CodeFirstEntities\PersonPhone.cs" />
+    <Compile Include="CodeFirstEntities\PhoneNumberType.cs" />
+    <Compile Include="CodeFirstEntities\Product.cs" />
+    <Compile Include="CodeFirstEntities\ProductCategory.cs" />
+    <Compile Include="CodeFirstEntities\ProductCostHistory.cs" />
+    <Compile Include="CodeFirstEntities\ProductDescription.cs" />
+    <Compile Include="CodeFirstEntities\ProductDocument.cs" />
+    <Compile Include="CodeFirstEntities\ProductInventory.cs" />
+    <Compile Include="CodeFirstEntities\ProductListPriceHistory.cs" />
+    <Compile Include="CodeFirstEntities\ProductModel.cs" />
+    <Compile Include="CodeFirstEntities\ProductModelIllustration.cs" />
+    <Compile Include="CodeFirstEntities\ProductModelProductDescriptionCulture.cs" />
+    <Compile Include="CodeFirstEntities\ProductPhoto.cs" />
+    <Compile Include="CodeFirstEntities\ProductProductPhoto.cs" />
+    <Compile Include="CodeFirstEntities\ProductReview.cs" />
+    <Compile Include="CodeFirstEntities\ProductSubcategory.cs" />
+    <Compile Include="CodeFirstEntities\ProductVendor.cs" />
+    <Compile Include="CodeFirstEntities\PurchaseOrderDetail.cs" />
+    <Compile Include="CodeFirstEntities\PurchaseOrderHeader.cs" />
+    <Compile Include="CodeFirstEntities\SalesOrderDetail.cs" />
+    <Compile Include="CodeFirstEntities\SalesOrderHeader.cs" />
+    <Compile Include="CodeFirstEntities\SalesOrderHeaderSalesReason.cs" />
+    <Compile Include="CodeFirstEntities\SalesPerson.cs" />
+    <Compile Include="CodeFirstEntities\SalesPersonQuotaHistory.cs" />
+    <Compile Include="CodeFirstEntities\SalesReason.cs" />
+    <Compile Include="CodeFirstEntities\SalesTaxRate.cs" />
+    <Compile Include="CodeFirstEntities\SalesTerritory.cs" />
+    <Compile Include="CodeFirstEntities\SalesTerritoryHistory.cs" />
+    <Compile Include="CodeFirstEntities\ScrapReason.cs" />
+    <Compile Include="CodeFirstEntities\Shift.cs" />
+    <Compile Include="CodeFirstEntities\ShipMethod.cs" />
+    <Compile Include="CodeFirstEntities\ShoppingCartItem.cs" />
+    <Compile Include="CodeFirstEntities\SpecialOffer.cs" />
+    <Compile Include="CodeFirstEntities\SpecialOfferProduct.cs" />
+    <Compile Include="CodeFirstEntities\StateProvince.cs" />
+    <Compile Include="CodeFirstEntities\Store.cs" />
+    <Compile Include="CodeFirstEntities\TransactionHistory.cs" />
+    <Compile Include="CodeFirstEntities\TransactionHistoryArchive.cs" />
+    <Compile Include="CodeFirstEntities\UnitMeasure.cs" />
+    <Compile Include="CodeFirstEntities\Vendor.cs" />
+    <Compile Include="CodeFirstEntities\WorkOrder.cs" />
+    <Compile Include="CodeFirstEntities\WorkOrderRouting.cs" />
     <Compile Include="ContactType.cs">
       <DependentUpon>AdvantureWork.tt</DependentUpon>
     </Compile>
@@ -105,6 +176,7 @@
     <Compile Include="EmailAddress.cs">
       <DependentUpon>AdvantureWork.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityExtensions\Person.cs" />
     <Compile Include="ErrorLog.cs">
       <DependentUpon>AdvantureWork.tt</DependentUpon>
     </Compile>
