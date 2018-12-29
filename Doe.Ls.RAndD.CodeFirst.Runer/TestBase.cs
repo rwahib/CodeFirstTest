@@ -14,7 +14,7 @@ namespace Doe.Ls.RAndD.CodeFirst.Runer
         public void DisplayDescription()
         {
             var str = this.GetType().Name;
-            var descriptiopn = Regex.Replace(str, "[a-z][A-Z]", m => m.Value[0] + " " + char.ToLower(m.Value[1]));
+            var descriptiopn = Wordfiy(str);
             Console.WriteLine($"{descriptiopn} is running .......");
 
             RunCore();
@@ -24,6 +24,18 @@ namespace Doe.Ls.RAndD.CodeFirst.Runer
         }
 
         protected abstract void RunCore();
+
+        protected void PrintMessage(string msg)
+        {
+            Console.WriteLine($"\n\n......{msg}..............\n\n");
+        }
+
+        protected  string Wordfiy(string source)
+        {
+            if (string.IsNullOrWhiteSpace(source)) return source;
+            return Regex.Replace(source, "[a-z][A-Z]", m => m.Value[0] + " " + char.ToLower(m.Value[1]));
+
+        }
     }
 }
 
