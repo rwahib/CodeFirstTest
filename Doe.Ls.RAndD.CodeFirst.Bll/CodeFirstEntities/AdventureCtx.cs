@@ -488,6 +488,7 @@ namespace Doe.Ls.RAndD.CodeFirst.Bll.CodeFirstEntities
                 .Property(e => e.PlannedCost)
                 .HasPrecision(19, 4);
 
+
             modelBuilder.Entity<WorkOrderRouting>()
                 .Property(e => e.ActualCost)
                 .HasPrecision(19, 4);

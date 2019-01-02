@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations.Model;
 using System.IO;
 using System.Linq;
@@ -22,10 +23,28 @@ namespace Doe.Ls.RAndD.CodeFirst.Runer
         protected override void RunCore()
         {
             // RtrieveTest();
-            UpdateTest();
+            //UpdateTest();
+            CheckMetadata();
 
         }
 
+        private void CheckMetadata()
+        {
+            using (var ctx = new AdventureCtx())
+            {
+               var x= ctx.Addresses.Include(a=>a.SalesOrderHeaders).Where(a=>a.SalesOrderHeaders.Any()).FirstOrDefault().SalesOrderHeaders;
+
+                if (x.Any())
+                {
+                    PrintMessage(x.FirstOrDefault().AccountNumber);
+
+                    var y = x.FirstOrDefault().SalesOrderDetails.FirstOrDefault();
+                    PrintMessage(y.rowguid.ToString());
+
+                }
+
+            }
+        }
 
         private void RtrieveTest()
         {
