@@ -86,6 +86,33 @@ namespace Doe.Ls.RAndD.CodeFirst.Runer
                 var clonedAddress = JsonConvert.DeserializeObject<Address>(addresJson);
                 PrintMessage($"Address before change {address}");
                 address.City = "Sydney";
+                address.AddressLine1 = "1 Evanse Avenue";
+
+                ctx.SaveChanges();
+                var savedAddress = ctx.Addresses.SingleOrDefault(a => a.rowguid == address.rowguid);
+                PrintMessage($"Address after change {savedAddress}");
+
+                savedAddress.City = clonedAddress.City;
+                savedAddress.AddressLine1 = clonedAddress.AddressLine1;
+                ctx.SaveChanges();
+                PrintMessage($"Address after restoration  {savedAddress}");
+
+            }
+
+
+        }
+        private void UpdateTest()
+        {
+            using (var ctx = new AdventureCtx())
+            {
+
+                PrintMessage(Wordfiy("Update address"));
+
+                var address = ctx.Addresses.FirstOrDefault();
+                var addresJson = JsonConvert.SerializeObject(address, Formatting.None);
+                var clonedAddress = JsonConvert.DeserializeObject<Address>(addresJson);
+                PrintMessage($"Address before change {address}");
+                address.City = "Sydney";
                 address.AddressLine1 = "1 Evans Avenue";
 
                 ctx.SaveChanges();
