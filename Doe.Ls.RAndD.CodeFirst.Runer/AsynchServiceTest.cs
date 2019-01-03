@@ -21,31 +21,23 @@ namespace Doe.Ls.RAndD.CodeFirst.Runer
         protected override void RunCore()
         {
             var timer = DateTime.Now;
+            //UsingParallel();
+            UsingTasks();
+            var span = DateTime.Now - timer;
+            Console.WriteLine(span);
+        }
+
+        private  void UsingParallel()
+        {
             var service = new CustomerService();
-            var tasks=new List<Task>();
-            Parallel.Invoke(() =>
-                {
-                    tasks.Add(service.GetCustomersByName("a"));
-
-                },
-                () =>
-                {
-                    tasks.Add(service.GetCustomersByName("b"));
-                },
-                () =>
-                {
-                    tasks.Add(service.GetCustomersByName("c"));
-
-                }
- ,
-                () =>
-                {
-                    tasks.Add(service.GetCustomersByName("d"));
-
-                }
-
-                );
-            var notNullTasks = tasks.Where(t=>t != null).ToArray();
+            var tasks = new List<Task>();
+            Parallel.Invoke(() => { tasks.Add(service.GetCustomersByName("a")); },
+                () => { tasks.Add(service.GetCustomersByName("b")); },
+                () => { tasks.Add(service.GetCustomersByName("c")); }
+                ,
+                () => { tasks.Add(service.GetCustomersByName("d")); }
+            );
+            var notNullTasks = tasks.Where(t => t != null).ToArray();
 
             Task.WaitAll(notNullTasks);
 
@@ -56,15 +48,45 @@ namespace Doe.Ls.RAndD.CodeFirst.Runer
                 if (taskResult == null) continue;
                 foreach (var customer in taskResult.Result.ModelList.Take(5))
                 {
-                    Console.WriteLine($" search {taskResult.Result.Search} Customer {customer.Person.FirstName} {customer.Person.LastName}");
+                    Console.WriteLine(
+                        $" search {taskResult.Result.Search} Customer {customer.Person.FirstName} {customer.Person.LastName}");
                 }
             }
-
-            var span = DateTime.Now - timer;
-            Console.WriteLine(span);
         }
 
+        private void UsingTasks()
+        {
+            var service = new CustomerService();
 
+
+            var tasks = new List<Task>
+            {
+                service.GetCustomersByName("a"),
+                service.GetCustomersByName("b"),
+                service.GetCustomersByName("c"),
+                service.GetCustomersByName("d")
+            };
+
+
+
+
+            Console.WriteLine("Do Something .............");
+            var notNullTasks = tasks.Where(t => t != null).ToArray();
+
+            //Task.WaitAll(notNullTasks);
+
+            foreach (var task in tasks)
+            {
+                var taskResult = task as Task<ResultModel<Customer>>;
+
+                if (taskResult == null) continue;
+                foreach (var customer in taskResult.Result.ModelList.Take(5))
+                {
+                    Console.WriteLine(
+                        $" search {taskResult.Result.Search} Customer {customer.Person.FirstName} {customer.Person.LastName}");
+                }
+            }
+        }
     }
 }
 

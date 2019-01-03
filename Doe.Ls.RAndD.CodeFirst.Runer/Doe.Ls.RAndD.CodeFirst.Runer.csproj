@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ParralelTest.cs" />
     <Compile Include="AsynchServiceTest.cs" />
     <Compile Include="AsynchTasks.cs" />
     <Compile Include="CodeFirstFromDatabaseSchemaTest.cs" />

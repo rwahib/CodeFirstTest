@@ -2,6 +2,7 @@
 
 using System;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Doe.Ls.RAndD.CodeFirst.Runer
@@ -19,7 +20,11 @@ namespace Doe.Ls.RAndD.CodeFirst.Runer
         protected override  void RunCore()
         {
             DoSynchronousWork();
+            Console.WriteLine(Thread.CurrentThread.ManagedThreadId);
+
             var someTask = DoSomethingAsync();
+            Console.WriteLine(Thread.CurrentThread.ManagedThreadId);
+
             someTask.GetAwaiter().OnCompleted(() =>
             {
                 Console.BackgroundColor = ConsoleColor.Red;
@@ -42,11 +47,14 @@ namespace Doe.Ls.RAndD.CodeFirst.Runer
         static async Task<string> DoSomethingAsync() //A Task return type will eventually yield a void
         {
             Console.WriteLine("2. Async task has started...");
+            Console.WriteLine(Thread.CurrentThread.ManagedThreadId);
             return await GetStringAsync(); // we are awaiting the Async Method GetStringAsync
         }
 
         static async Task<string> GetStringAsync()
         {
+            Console.WriteLine(Thread.CurrentThread.ManagedThreadId);
+
             using (var httpClient = new HttpClient())
             {
                 Console.WriteLine("3. Awaiting the result of GetStringAsync of Http Client...");
