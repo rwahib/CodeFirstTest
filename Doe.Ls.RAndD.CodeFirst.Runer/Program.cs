@@ -16,7 +16,8 @@ namespace Doe.Ls.RAndD.CodeFirst.Runer
             {
                // new DbaseFirstWithDiffrentSchemaTest(),
                // new CodeFirstFromDatabaseSchemaTest()
-                new AsynchTasks()
+                //new AsynchTasks()
+                new AsynchServiceTest()
             };
 
 

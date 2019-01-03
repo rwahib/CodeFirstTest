@@ -25,10 +25,10 @@ namespace Doe.Ls.RAndD.CodeFirst.Runer
                 Console.BackgroundColor = ConsoleColor.Red;
                 Console.WriteLine("This task is completed");
             });
-            DoSynchronousWorkAfterAwait();
+             DoSynchronousWorkAfterAwait();
             //someTask.Wait(); //this is a blocking call, use it only on Main method
             Console.WriteLine(someTask.Result);
-
+          
             Console.ReadLine();
 
         }
