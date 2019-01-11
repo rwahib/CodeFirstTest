@@ -67,7 +67,9 @@ namespace Doe.Ls.RAndD.CodeFirst.Runer
                 service.GetCustomersByName("d")
             };
 
-
+            var searchTask =  service.SearchCustomer(cs=>cs.Include(c=>c.Person).Where(c=>c.Person.LastName.StartsWith("a")));
+            searchTask.Wait();
+            var count=searchTask.Result.ModelList.Count;
 
 
             Console.WriteLine("Do Something .............");
@@ -87,6 +89,8 @@ namespace Doe.Ls.RAndD.CodeFirst.Runer
                 }
             }
         }
+
+       
     }
 }
 
