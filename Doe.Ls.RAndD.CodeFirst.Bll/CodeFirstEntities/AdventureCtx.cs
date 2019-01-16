@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Doe.Ls.RAndD.CodeFirst.Bll.CodeFirstEntities
 {
     using System;
@@ -5,8 +7,9 @@ namespace Doe.Ls.RAndD.CodeFirst.Bll.CodeFirstEntities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class AdventureCtx : DbContext
+    public partial class AdventureCtx : DbContext, IDbContextConfigurationType
     {
+
         public AdventureCtx()
             : base("name=AdventureCtx")
         {
@@ -85,10 +88,19 @@ namespace Doe.Ls.RAndD.CodeFirst.Bll.CodeFirstEntities
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            if(this.EntityTypeConfigurationList==null)EntityTypeConfigurationList=new List<object>();
+
             modelBuilder.Entity<Department>()
-                .HasMany(e => e.EmployeeDepartmentHistories)
+              .HasMany(e => e.EmployeeDepartmentHistories)
                 .WithRequired(e => e.Department)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Department>().
+                Property(e => e.Name).IsRequired().HasMaxLength(250);
+            modelBuilder.Entity<Department>()
+                .Property(e => e.ModifiedDate).HasColumnName("LastChangedDate")
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Computed);
+
 
             modelBuilder.Entity<Employee>()
                 .Property(e => e.MaritalStatus)
@@ -760,6 +772,40 @@ namespace Doe.Ls.RAndD.CodeFirst.Bll.CodeFirstEntities
                 .HasMany(e => e.Customers)
                 .WithOptional(e => e.Store)
                 .HasForeignKey(e => e.StoreID);
+            var resultS = "";
+
+
+
+            var result = this.GetType().Assembly.GetTypes()
+                .Where(t => 
+                    
+                    t.Namespace == this.GetType().Namespace
+                   && t.IsClass && !t.IsGenericType
+            
+                && 
+                    (
+                        t.GetCustomAttributes(false).Any(att=>att.GetType()==typeof(TableAttribute))
+                        
+
+                    )
+
+
+            )
+                .Select(t =>
+                {
+                    resultS += "\n" + t.Name;
+                    return t.Name;
+                }).ToArray();
+            
+                ;
+
+            Console.WriteLine(resultS);
+
+            //this.EntityTypeConfigurationList.Add(modelBuilder.Entity<Department>());
+
         }
+
+
+        public List<object> EntityTypeConfigurationList { get; set; }
     }
 }

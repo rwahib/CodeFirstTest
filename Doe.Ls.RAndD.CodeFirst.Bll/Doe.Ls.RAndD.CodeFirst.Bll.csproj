@@ -62,42 +62,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Address.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AddressType.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AdvantureWork.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AdvantureWork.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AdvantureWork.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AdvantureWork.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AdvantureWork.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="AWBuildVersion.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BillOfMaterial.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BusinessEntity.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BusinessEntityAddress.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BusinessEntityContact.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
     <Compile Include="DebuggerInfo.cs" />
     <Compile Include="CodeFirstEntities\Address.cs" />
     <Compile Include="CodeFirstEntities\AddressType.cs" />
@@ -170,136 +134,19 @@
     <Compile Include="CodeFirstEntities\Vendor.cs" />
     <Compile Include="CodeFirstEntities\WorkOrder.cs" />
     <Compile Include="CodeFirstEntities\WorkOrderRouting.cs" />
-    <Compile Include="ContactType.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CountryRegion.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Culture.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DatabaseLog.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EmailAddress.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
     <Compile Include="EntityExtensions\Address.cs" />
     <Compile Include="EntityExtensions\Person.cs" />
-    <Compile Include="ErrorLog.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Illustration.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Location.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Password.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Person.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PersonPhone.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PhoneNumberType.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Product.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProductCategory.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProductCostHistory.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProductDescription.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProductDocument.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProductInventory.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProductListPriceHistory.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProductModel.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProductModelIllustration.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProductModelProductDescriptionCulture.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProductPhoto.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProductProductPhoto.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProductReview.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProductSubcategory.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
+    <Compile Include="IDbContextConfigurationType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResultModel.cs" />
-    <Compile Include="ScrapReason.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
     <Compile Include="Services\CustomerService.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="StateProvince.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TransactionHistory.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TransactionHistoryArchive.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="UnitMeasure.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="WorkOrder.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
-    <Compile Include="WorkOrderRouting.cs">
-      <DependentUpon>AdvantureWork.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="AdvantureWork.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AdvantureWork.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="AdvantureWork.edmx.diagram">
-      <DependentUpon>AdvantureWork.edmx</DependentUpon>
-    </None>
     <None Include="App.Config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AdvantureWork.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>AdvantureWork.Context.cs</LastGenOutput>
-      <DependentUpon>AdvantureWork.edmx</DependentUpon>
-    </Content>
-    <Content Include="AdvantureWork.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AdvantureWork.edmx</DependentUpon>
-      <LastGenOutput>AdvantureWork.cs</LastGenOutput>
-    </Content>
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Doe.Ls.RAndD.CodeFirst.Bll;
 using Doe.Ls.RAndD.CodeFirst.Bll.CodeFirstEntities;
 using Newtonsoft.Json;
-using Address = Doe.Ls.RAndD.CodeFirst.Bll.Address;
+//using Address = Doe.Ls.RAndD.CodeFirst.Bll.Address;
 
 namespace Doe.Ls.RAndD.CodeFirst.Runer
 {

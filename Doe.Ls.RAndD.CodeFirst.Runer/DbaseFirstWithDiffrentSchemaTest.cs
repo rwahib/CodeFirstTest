@@ -13,26 +13,26 @@ namespace Doe.Ls.RAndD.CodeFirst.Runer
     {
         protected override void RunCore()
         {
-            var ctx = new AdventureWorksEntities();
+            //var ctx = new AdventureWorksEntities();
 
-            PrintMessage(Wordfiy("Print AWBuildVersions"));
+            //PrintMessage(Wordfiy("Print AWBuildVersions"));
 
-            foreach (var buildVersion in ctx.AWBuildVersions.Take(10))
-            {
-                Console.WriteLine(buildVersion.Database_Version);
-            }
-            PrintMessage(Wordfiy("Print BusinessEntities"));
+            //foreach (var buildVersion in ctx.AWBuildVersions.Take(10))
+            //{
+            //    Console.WriteLine(buildVersion.Database_Version);
+            //}
+            //PrintMessage(Wordfiy("Print BusinessEntities"));
 
-            foreach (var entity in ctx.BusinessEntities.Take(10))
-            {
-                Console.WriteLine(entity.Person.LastName);
-            }
+            //foreach (var entity in ctx.BusinessEntities.Take(10))
+            //{
+            //    Console.WriteLine(entity.Person.LastName);
+            //}
 
-            PrintMessage(Wordfiy("Print ProductDescriptions"));
-            foreach (var productDescription in ctx.ProductDescriptions.Take(10))
-            {
-                Console.WriteLine(productDescription.Description);
-            }
+            //PrintMessage(Wordfiy("Print ProductDescriptions"));
+            //foreach (var productDescription in ctx.ProductDescriptions.Take(10))
+            //{
+            //    Console.WriteLine(productDescription.Description);
+            //}
         }
     }
 }
