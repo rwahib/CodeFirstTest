@@ -16,7 +16,7 @@ namespace Doe.Ls.RAndD.CodeFirst.Runer.IdentityModel
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-           modelBuilder.HasDefaultSchema("dbo");
+            modelBuilder.HasDefaultSchema("dbo");
            
             modelBuilder.Entity<IdentityUserLogin>().Map(c =>
             {
@@ -43,8 +43,9 @@ namespace Doe.Ls.RAndD.CodeFirst.Runer.IdentityModel
 
             modelBuilder.Entity<ApplicationUser>().Map(c =>
             {
-                c.ToTable("SysUser");               
+                c.ToTable("SysUser");                
             }).HasKey(c => c.Id);
+
             modelBuilder.Entity<ApplicationUser>().HasMany(c => c.Logins).WithOptional().HasForeignKey(c => c.UserId);
             modelBuilder.Entity<ApplicationUser>().HasMany(c => c.Claims).WithOptional().HasForeignKey(c => c.UserId);
             modelBuilder.Entity<ApplicationUser>().HasMany(c => c.Roles).WithRequired().HasForeignKey(c => c.UserId);
