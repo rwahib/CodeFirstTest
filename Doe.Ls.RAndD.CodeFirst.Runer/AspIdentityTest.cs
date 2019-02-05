@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Doe.Ls.RAndD.CodeFirst.Runer.IdentityModel;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -15,19 +16,15 @@ namespace Doe.Ls.RAndD.CodeFirst.Runer
         protected override void RunCore()
         {
 
-          
-
-           var result= CreateUserIdentityForSpecificDbConnection().Result;
-            result=CreateUsersWithClaims().Result;
-            result = AddingPasswords().Result;
+          var result= CreateUserIdentityForSpecificDbConnection().Result;
+          result=CreateUsersWithClaims().Result;
+          result = AddingPasswords().Result;
 
         }
 
         private static async Task<bool> AddingPasswords()
         {
-            var identityDbContext = new IdentityDbContext<IdentityUser>("IdentityConnection");
-            var userStore = new UserStore<IdentityUser>(identityDbContext);
-            var userManager = new UserManager<IdentityUser>(userStore);
+            var userManager = ApplicationUserManager.Create();
             foreach (var user in userManager.Users.ToList())
             {
 
@@ -41,18 +38,26 @@ namespace Doe.Ls.RAndD.CodeFirst.Runer
 
         private static async Task<bool>  CreateUsersWithClaims()
         {
-            var identityDbContext = new IdentityDbContext<IdentityUser>("IdentityConnection");
-            var userStore = new UserStore<IdentityUser>(identityDbContext);
-            var userManager = new UserManager<IdentityUser>(userStore);
+            var userManager = ApplicationUserManager.Create();
 
             for (int i = 0; i < 100; i++)
             {
-                var newUser = new IdentityUser()
+                var newUser = new ApplicationUser()
                 {
                     Email = $"First_{i}.Last@Email.com",
                     UserName = $"MyUser{i}.Name{1}@gmaEmail.com",
-                    PhoneNumber = $"042{i}17{i}197"
+                    PhoneNumber = $"042{i}17{i}197",
+                    SchoolCode = 1001,
+                    Position = "Manager",
+                    FirstName = $"First_{i}",
+                    LastName = "Last",
+                    TitleId = -1,
+                    CreatedDate = DateTime.Now,
+                    LastLastModifiedDate = DateTime.Now,
+                    LastLastModifiedBy = Environment.UserName,
+                    CreatedBy = Environment.UserName,
                 };
+
                 var result = userManager.Create(newUser);
 
                 if (result.Succeeded)
@@ -79,15 +84,22 @@ namespace Doe.Ls.RAndD.CodeFirst.Runer
 
         private static async Task<bool> CreateUserIdentityForSpecificDbConnection()
         {
-            var identityDbContext = new IdentityDbContext<IdentityUser>("IdentityConnection");
-            var userStore = new UserStore<IdentityUser>(identityDbContext);
-            var userManager = new UserManager<IdentityUser>(userStore);
+            var userManager = ApplicationUserManager.Create();
 
-            var result = await userManager.CreateAsync(new IdentityUser()
+            var result = await userManager.CreateAsync(new ApplicationUser
             {
                 Email = "refkyw@gmail.com",
                 UserName = "refky.wahib@gmail.com",
-                PhoneNumber = "0423177197"
+                PhoneNumber = "0423177197",
+                SchoolCode = 1001,
+                Position = "Manager",
+                FirstName = "Refky",
+                LastName = "Wahib",
+                TitleId = -1,
+                CreatedDate = DateTime.Now,
+                LastLastModifiedDate = DateTime.Now,
+                LastLastModifiedBy = Environment.UserName,
+                CreatedBy =  Environment.UserName,
             });
 
             Console.WriteLine(result.Succeeded);
