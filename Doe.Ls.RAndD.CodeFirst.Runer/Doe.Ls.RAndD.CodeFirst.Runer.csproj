@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AspIdentityTest.cs" />
+    <Compile Include="IdentityModel\ApplicationDbContext.cs" />
     <Compile Include="IdentityModel\ApplicationUser.cs" />
     <Compile Include="IdentityModel\ApplicationUserManager.cs" />
     <Compile Include="ParralelTest.cs" />

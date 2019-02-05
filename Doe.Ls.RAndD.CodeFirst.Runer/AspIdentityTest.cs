@@ -40,7 +40,7 @@ namespace Doe.Ls.RAndD.CodeFirst.Runer
         {
             var userManager = ApplicationUserManager.Create();
 
-            for (int i = 0; i < 100; i++)
+            for (var i = 0; i < 100; i++)
             {
                 var newUser = new ApplicationUser()
                 {
@@ -53,8 +53,8 @@ namespace Doe.Ls.RAndD.CodeFirst.Runer
                     LastName = "Last",
                     TitleId = -1,
                     CreatedDate = DateTime.Now,
-                    LastLastModifiedDate = DateTime.Now,
-                    LastLastModifiedBy = Environment.UserName,
+                    LastModifiedDate = DateTime.Now,
+                    LastModifiedBy = Environment.UserName,
                     CreatedBy = Environment.UserName,
                 };
 
@@ -97,8 +97,8 @@ namespace Doe.Ls.RAndD.CodeFirst.Runer
                 LastName = "Wahib",
                 TitleId = -1,
                 CreatedDate = DateTime.Now,
-                LastLastModifiedDate = DateTime.Now,
-                LastLastModifiedBy = Environment.UserName,
+                LastModifiedDate = DateTime.Now,
+                LastModifiedBy = Environment.UserName,
                 CreatedBy =  Environment.UserName,
             });
 

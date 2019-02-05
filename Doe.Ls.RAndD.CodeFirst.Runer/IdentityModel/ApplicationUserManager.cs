@@ -16,10 +16,11 @@ namespace Doe.Ls.RAndD.CodeFirst.Runer.IdentityModel
 
         public static ApplicationUserManager Create()
         {
-            var identityDbContext = new IdentityDbContext<ApplicationUser>("IdentityConnection");
+            var identityDbContext = new ApplicationDbContext("IdentityConnection");
             var userStore = new UserStore<ApplicationUser>(identityDbContext);
             return new ApplicationUserManager(userStore);
 
         }
+        
     }
 }

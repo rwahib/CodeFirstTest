@@ -8,7 +8,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Doe.Ls.RAndD.CodeFirst.Runer.IdentityModel
 {
-    [Table("SysUser")]
+    
     public class ApplicationUser: IdentityUser
     {
         public int SchoolCode { get; set; }
@@ -17,9 +17,10 @@ namespace Doe.Ls.RAndD.CodeFirst.Runer.IdentityModel
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public DateTime LastLastModifiedDate { get; set; }
+
+        public DateTime LastModifiedDate { get; set; }
         public DateTime CreatedDate { get; set; }
-        public string LastLastModifiedBy { get; set; }
+        public string LastModifiedBy { get; set; }
         public string CreatedBy { get; set; }
     }
 }
