@@ -15,10 +15,10 @@ namespace Doe.Ls.RAndD.CodeFirst.Runer
             var tests = new List<ITest>
             {
                 //new DbaseFirstWithDiffrentSchemaTest(),
-               new CodeFirstFromDatabaseSchemaTest()
+               //new CodeFirstFromDatabaseSchemaTest()
                 //new AsynchTasks()
                //new AsynchServiceTest()
-                //new AspIdentityTest()
+                new AspIdentityTest()
             };
 
 
